@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        let n = +prompt('Mảng có bao nhiêu phần tử: ');
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt('Phần tử thứ '+(i+1));
+        }
+        let count = 0;
+        let tong = 0;
+        for (let i = 0; i< arr.length; i++) {
+            if (arr[i] %3 == 0) {
+                tong += arr[i];
+                count ++;
+            }
+        }
+        alert("Trung bình là "+tong/count);
+    </script>
+</body>
+</html>

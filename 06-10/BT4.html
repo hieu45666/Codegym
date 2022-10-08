@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        let arr = [9,7,2,8,1,6,4,2,4,8,7,6];
+        let max = arr[0];
+        let max2 = 0
+        for (let i = 0; i<arr.length; i++ )  {
+            if (max < arr[i]) {
+            max2=max;
+            max = arr[i];
+            }
+            else if (arr[i]>max2&&arr[i]<max){
+                max2=arr[i];
+            }
+        }
+        alert(max);
+        alert(max2);
+
+    //   let arr = [2, 1, 1, 6, 7, 4, 2, 4, 8, 8,8,6];
+    //   let max = arr[0];
+    //   let max2 = arr[0];
+    //   for (let i = 0; i < arr.length; i++) {
+    //     if (max2 < arr[i]) 
+    //       {if (max < arr[i]) {
+    //             max = arr[i];
+
+    //         }
+    //       }
+    //   }
+    //   alert(max);
+    //   alert(max2);
+
+      // let max2 = 0;
+      // for (let i = 0; i<arr.length; i++ )  {
+      //     if ((max2 < arr[i]) && (arr[i] < max)) max2 = arr[i];
+      // }
+      // alert(max2);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Môn toán    <input type="text" id="toan"></p>
+    <p>Môn văn    <input type="text" id="van"></p1>
+    <p>Môn anh    <input type="text" id="anh"></p1>
+    <select id="khuvuc">
+        <option value="KV1" name="KV1">KV1</option>
+        <option value="KV2" name="KV2">KV2</option>
+        <option value="KV2-NT" name="KV2-NT">KV2-NT</option>
+        <option value="KV3" name="KV3">KV3</option>
+    </select>
+    <button onClick="tinhdiem()">Tính</button>
+    <h1 style="color:red;" id="result">Kết quả là:</h1>
+    <script>
+        function tinhdiem() {
+            let toan = +document.getElementById('toan').value;
+            let van = +document.getElementById('van').value;
+            let anh = +document.getElementById('anh').value;
+            let khuvuc = document.getElementById('khuvuc').value;
+            let result = toan + van + anh;
+            switch (khuvuc) {
+                case "KV1":
+                    result += 0.75;
+                    break;
+                case "KV2":
+                    result += 0.25;
+                    break;
+                case "KV2-NT":
+                    result += 0.5;
+                    break;
+            }
+
+            document.getElementById('result').innerHTML = "Kết quả là: " +result;
+        }
+    </script>
+   </body>
+</html>

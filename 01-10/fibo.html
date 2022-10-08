@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 1;
+        let b = 1;
+        let sl = +prompt("Số lượng số fibo cần in ra: ");
+        let dem = 1;
+        while (dem <= sl) {
+            document.write(a+ "<br>");
+            if (a%5==0) break;
+            let c = a+ b;
+            a = b;
+            b = c;
+            dem++;
+        }
+
+        chiaCho5 = true;
+        while (chiaCho5) {
+            if (a % 5 == 0) chiaCho5 = true;
+            document.write(a+ "<br>");
+            let c = a+ b;
+            a = b;
+            b = c;
+        }
+    </script>
+</body>
+</html>

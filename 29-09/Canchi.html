@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="nhap" placeholder="Năm dương lịch">
+    <button onclick="conVert()">Chuyển đổi</button>
+    <h3 id="result">Năm âm lịch: </h3>
+
+    <script>
+        function conVert() {
+            let nam = +document.getElementById('nhap').value;
+            let can = nam % 10;
+            let can2[] = {"Canh", "Tân", "Nhâm", "Quý", "Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ"};
+            switch (can) {
+                case 0:
+                    document.getElementById('result').innerHTML += "Canh ";
+                    break;
+                case 1:
+                    document.getElementById('result').innerHTML += "Tân ";
+                    break;
+                case 2:
+                    document.getElementById('result').innerHTML += "Nhâm ";
+                    break;
+                case 3:
+                    document.getElementById('result').innerHTML += "Quý ";
+                    break;
+                case 4:
+                    document.getElementById('result').innerHTML += "Giáp ";
+                    break;
+                case 5:
+                    document.getElementById('result').innerHTML += "Ất ";
+                    break;
+                case 6:
+                    document.getElementById('result').innerHTML += "Bính ";
+                    break;
+                case 7:
+                    document.getElementById('result').innerHTML += "Đinh ";
+                    break;
+                case 8:
+                    document.getElementById('result').innerHTML += "Mậu ";
+                    break;
+                case 9:
+                    document.getElementById('result').innerHTML += "Kỷ ";
+                    break;
+            }
+
+            let chi = nam % 12;
+            switch (chi) {
+                case 0:
+                    document.getElementById('result').innerHTML += "Thân ";
+                    break;
+                case 1:
+                    document.getElementById('result').innerHTML += "Dậu ";
+                    break;
+                case 2:
+                    document.getElementById('result').innerHTML += "Tuất ";
+                    break;
+                case 3:
+                    document.getElementById('result').innerHTML += "Hợi ";
+                    break;
+                case 4:
+                    document.getElementById('result').innerHTML += "Tý ";
+                    break;
+                case 5:
+                    document.getElementById('result').innerHTML += "Sửu ";
+                    break;
+                case 6:
+                    document.getElementById('result').innerHTML += "Dần ";
+                    break;
+                case 7:
+                    document.getElementById('result').innerHTML += "Mão ";
+                    break;
+                case 8:
+                    document.getElementById('result').innerHTML += "Thìn ";
+                    break;
+                case 9:
+                    document.getElementById('result').innerHTML += "Tỵ ";
+                    break;
+                case 10:
+                    document.getElementById('result').innerHTML += "Ngọ ";
+                    break;
+                case 11:
+                    document.getElementById('result').innerHTML += "Mùi ";
+                    break;
+            } 
+        }
+    </script>
+
+</body>
+</html>

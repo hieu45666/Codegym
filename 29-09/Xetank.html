@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      src="tank-1.jpg"
+      id="tank"
+      alt=""
+      style="
+        top: 100px;
+        left: 100px;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+      "
+    />
+    <img
+      src="Boom.jpg"
+      id="boom"
+      alt=""
+      style="
+        border: 1px solid black;
+        top: 400px;
+        left: 300px;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+      "
+    />
+    <button onclick="up()">Up</button>
+    <button onclick="down()">Down</button>
+    <button onclick="left()">Left</button>
+    <button onclick="right()">Right</button>
+    <input type="text" id="toado">
+
+    <script>
+
+      function up() {
+        document.getElementById("tank").style.top =
+          parseFloat(document.getElementById("tank").style.top) - 10 + "px";
+        check();
+      }
+      function down() {
+        document.getElementById("tank").style.top =
+          parseFloat(document.getElementById("tank").style.top) + 10 + "px";
+        check();
+      }
+      function right() {
+        document.getElementById("tank").style.left =
+          parseFloat(document.getElementById("tank").style.left) + 10 + "px";
+        check();
+      }
+      function left() {
+        document.getElementById("tank").style.left =
+          parseFloat(document.getElementById("tank").style.left) - 10 + "px";
+        check();
+      }
+
+      function check() {
+        let topTank = parseFloat(document.getElementById("tank").style.top);
+        let leftTank = parseFloat(document.getElementById("tank").style.left);
+        document.getElementById('toado').value = topTank + ' ' + leftTank;
+        if (
+          topTank >= 350 &&
+          topTank <= 500 &&
+          leftTank >= 250 &&
+          leftTank <= 400
+        )
+          alert("Nổ");
+      }
+    </script>
+  </body>
+</html>

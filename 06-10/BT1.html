@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        let n = +prompt('Mảng có bao nhiêu phần tử: ');
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt('Phần tử thứ '+i+1);
+        }
+        document.write("Phần tử chia 5 dư 2 là: <br>")
+        for (i = 0; i < n; i++) {
+            if (arr[i]%5==2) document.write(arr[i]+' ');
+        }
+    </script>
+</body>
+</html>

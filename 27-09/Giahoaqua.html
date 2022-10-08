@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Giá hoa quả</h1>
+    <input id="loai" type="text">
+    <button onclick="tinhgia()">Tính</button>
+    <p id="gia"></p>
+    <script>
+        function tinhgia(){
+        let loaihq = document.getElementById('loai').value;
+        switch (loaihq) {
+            case "Ổi":
+                document.getElementById('gia').innerHTML = "20.000 VND/Kg";
+                break;
+            case "Dưa Hấu":
+                document.getElementById('gia').innerHTML = "20.000 VND/Kg";
+                break;
+            case "Táo":
+                document.getElementById('gia').innerHTML = "30.000 VND/Kg";
+                break;
+            case "Xoài":
+                document.getElementById('gia').innerHTML = "30.000 VND/Kg";
+                break;
+            case "Cam":
+                document.getElementById('gia').innerHTML = "40.000 VND/Kg";
+                break;
+            case "Chôm Chôm":
+                document.getElementById('gia').innerHTML = "40.000 VND/Kg";
+                break;
+            case "Măng cụt":
+                document.getElementById('gia').innerHTML = "50.000 VND/Kg";
+                break;
+            default:
+                document.getElementById('gia').innerHTML = "Không có loại hoa quả này";
+                break;
+        }
+    }
+    </script>
+</body>
+</html>

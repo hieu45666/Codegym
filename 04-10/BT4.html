@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="bcc" border=1>
+    <script>
+         let str = "";
+        for(let i=1; i<=10; i++) {
+            str+= "<tr>"
+            for(let j=2; j<=10; j++) {
+                str += "<td>"+ j+"x" +i +"=" +i*j+ "</td>"
+                // str += "<td>$(i)x$(j)=$(i*j)</td>"
+            }
+            str+= "</tr>"
+        }
+        document.getElementById("bcc").innerHTML = str;
+
+        // document.write('<table border="1"');
+        // for (let i = 1; i < 10; i++) {
+        //     document.write('<tr>');
+        //     for (let j = 1; j < 10; j++) {
+        //         document.write('<td>'+j+'X'+i+'='+i*j+'</td>');
+        //     }
+        //     document.write('</td>');
+        // }
+        // document.write('</table>')
+
+        // document.write('<table border="1">');
+        // for(let i=1;i<11;i++){
+        //     document.write('<tr>')
+        //     for(let j=1;j<11;j++){
+        //         document.write('<td>');
+        //         document.write(i+'X'+j+'='+(i*j));
+        //         document.write('</td>')
+        //     }
+        //     document.write('</tr>');
+        // }
+        // document.write('</table>');
+    </script>
+    
+</body>
+</html>

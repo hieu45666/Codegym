@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4"><input type='text' id='screen'></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputCal('(')">(</button></td>
+            <td><button onclick="inputCal(')')">)</button></td>
+            <td><button onclick="inputCal('%')">%</button></td>
+            <td><button onclick="inputCal('AC')">AC</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputCal(7)">7</button></td>
+            <td><button onclick="inputCal(8)">8</button></td>
+            <td><button onclick="inputCal(9)">9</button></td>
+            <td><button onclick="inputCal('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputCal(4)">4</button></td>
+            <td><button onclick="inputCal(5)">5</button></td>
+            <td><button onclick="inputCal(6)">6</button></td>
+            <td><button onclick="inputCal('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputCal(1)">1</button></td>
+            <td><button onclick="inputCal(2)">2</button></td>
+            <td><button onclick="inputCal(3)">3</button></td>
+            <td><button onclick="inputCal('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="inputCal(0)">0</button></td>
+            <td><button onclick="inputCal('.')">.</button></td>
+            <td><button onclick="inputCal('=')" style="background-color:aqua;">=</button></td>
+            <td><button onclick="inputCal('+')">+</button></td>
+        </tr>
+    </table>
+
+    <script>
+        function inputCal(inp) {
+            switch (inp) {
+                case '=':
+                    let result = document.getElementById('screen').value;
+                    document.getElementById('screen').value = eval(result);
+                    break;
+                case 'AC':
+                    document.getElementById('screen').value = '';
+                    break;
+                default:
+                    document.getElementById('screen').value += inp;
+            }
+        }
+    </script>
+</body>
+</html>
