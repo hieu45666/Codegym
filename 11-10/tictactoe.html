@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="danh()">
+        Đánh
+    </button>
+    <div id="show"></div>
+    <br>
+    <script>
+        let arr = [
+            ['_', '_', '_'],
+            ['_', '_', '_'],
+            ['_', '_', '_'],
+        ]
+        let turn = 0
+        let str = '';
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                str += arr[i][j] + ' ';
+            }
+            str += '<br>'
+        }
+        document.getElementById('show').innerHTML = str
+
+        function danh() {
+            let i = +prompt("Nhập vào hàng:");
+            let j = +prompt("Nhập vào cột:");
+            if (i > 2 || j > 2) alert("mất lượt") 
+            else if (arr[i][j] == '_') {
+            if (turn % 2) {
+                arr[i][j] = 'X'
+            } else {
+                arr[i][j] = 'O'
+            }
+            turn++;}
+            else alert("Mất lượt lần 2");
+
+
+            let str = '';
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++) {
+                    str += arr[i][j] + ' ';
+                }
+                str += '<br>'
+            }
+            document.getElementById('show').innerHTML = str;
+            if (turn > 4) check();
+        }
+
+        function check() {
+            let i = 0;
+            let j = 0;
+            for (; i<2; i++)
+            {if (arr[i][j] == arr[i][j+1]&& arr[i][j]==arr[i][j+2]) 
+                {if (arr[i][j] == 'x') alert('x thắng') 
+                    else alert('o thắng');}}
+            for (; j<2; j++)
+            {if (arr[i][j] == arr[i-1][j]&& arr[i][j]==arr[i-2][j]) 
+                {if (arr[i][j] == 'x') alert('x thắng') 
+                else alert('o thắng');}}
+            for (i=0; i<2; i++)
+            {if (arr[i][i]== arr[i+1][i+1] && arr[i][i]==arr[i+2][i+2]) 
+                {if (arr[i][j] == 'x') alert('x thắng') 
+                else alert('o thắng')};}
+
+                //kiểm tra ở hàng hiện tại nhập vào là được không cần chạy lại hết cả mảng
+        }
+    </script>
+</body>
+
+</html>

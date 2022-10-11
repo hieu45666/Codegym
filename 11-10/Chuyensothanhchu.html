@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nhapSo = +prompt("Nhập số cấn chuyển đổi:");
+        let du = nhapSo % 10;
+        let nguyen = (nhapSo - du)/10;
+        let result ='';
+        switch (nguyen) {
+            case 0: 
+                result = conVert(du);
+                break;
+            case 1: 
+                if (du == 0) result = "Mười"
+                else result = "Mười " + conVert(du);
+                break;
+            default:
+                if (du == 0) result = conVert(nguyen) + " Mươi"
+                else {
+                    result = conVert(nguyen) + " Mươi "+conVert(du);
+                }
+        }
+            alert(result);
+
+        function conVert(inp) {
+            switch (inp) {
+                case 0: 
+                    return "Mươi";
+                    break;
+                case 1: 
+                    return "Một";
+                    break;
+                case 2: 
+                    return "Hai";
+                    break;
+                case 3: 
+                    return "Ba";
+                    break;
+                case 4: 
+                    return "Bốn";
+                    break;
+                case 5: 
+                    return "Năm";
+                    break;
+                case 6: 
+                    return "Sáu";
+                    break;
+                case 7: 
+                    return "Bảy";
+                    break;
+                case 8: 
+                    return "Tám";
+                    break;
+                case 9: 
+                    return "Chín";
+                    break;
+            }
+        }
+         /* cách 2
+            let chu = ['Mươi', 'Mốt', 'Hai', 'Ba', 'Bốn', 'Năm', 'Sáu', 'Bảy', 'Tám', 'Chín'];
+        let so = +prompt("Nhập vào: ");
+        let kq = ''
+        if (so < 10) {
+            switch (so) {
+                case 0:
+                    kq += "Không";
+                    break;
+                case 1:
+                    kq += "Một";
+                    break;
+                default:
+                    kq += chu[so]
+            }
+        } else if (so < 20) {
+            kq += 'Mười '
+            switch (so % 10) {
+                case 0:
+                    kq += '';
+                    break;
+                case 1:
+                    kq += "Một";
+                    break;
+                case 5:
+                    kq += "Lăm";
+                    break;
+                default:
+                    kq += chu[so % 10]
+            }
+        } else {
+            let hangChuc = parseInt(so / 10);
+            let hangDV = so % 10;
+        }
+        alert(kq) = chu[hangChuc] + " Mươi " + chu[hangDV];
+
+         
+         */
+    </script>
+
+   
+</body>
+</html>
