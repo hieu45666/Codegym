@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = +prompt("Nhập số cần kiểm tra:");
+        function ktraNto(soKtra) 
+        {
+        let kTra = false;
+        if (soKtra == 2) alert("Là số nguyên tố")
+        else {
+            for (let i = 2; i < soKtra/2; i++) {
+                if (soKtra % i == 0 ) kTra = true;
+            }
+        }
+        if (kTra) alert("Không là số nguyên tố");
+        else alert("Là số nguyên tố");}
+        ktraNto(x);
+        </script>
+</body>
+</html>

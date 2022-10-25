@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500px" height="500px" style="border: 2px black solid"></canvas>
+
+    <script>
+        var ctx = document.getElementById('myCanvas').getContext('2d');
+        // ctx.moveTo(50,50);
+        // ctx.lineTo(200,200);
+        // ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(100, 100, 100, 0, 2 * Math.PI);
+        
+        ctx.font = "30px Time News Roman";
+        ctx.fillText("Hello world", 20, 30);
+        
+        ctx.fillRect(100, 100, 50, 70);
+    </script>
+</body>
+</html>

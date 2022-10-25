@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="1200px" height="700px"></canvas>
+
+    <script>
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+
+        function veHinhTron() {
+          let x = +prompt("Nhập hoành độ:");
+          let y = +prompt("Nhập tung độ:");
+          let r = +prompt("Nhập bán kính:");
+          alert("Nhập màu rgb");
+          let rgb1 = +prompt("Red: ");
+          let rgb2 = +prompt("Blue: ");
+          let rgb3 = +prompt("Green: ");
+
+          ctx.fillStyle = "rgb(" + rgb1 + "," + rgb2 + "," + rgb3 + ")";
+          ctx.arc(x, y, r, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+
+        veHinhTron();
+
+        function veNgauNhien() {
+          for (let i = 0; i < 50; i++) {
+            let rgb1 = Math.floor(Math.random() * 255);
+            let rgb2 = Math.floor(Math.random() * 255);
+            let rgb3 = Math.floor(Math.random() * 255);
+              ctx.beginPath();
+              ctx.fillStyle = "rgb(" + rgb1 + "," + rgb2 + "," + rgb3 + ")";
+            ctx.arc(
+              Math.floor(Math.random() * 1000),
+              Math.floor(Math.random() * 600),
+              Math.floor(Math.random() * 50),
+              0,
+              2 * Math.PI
+            );
+            ctx.fill();
+          }
+        }
+        veNgauNhien();
+    </script>
+  </body>
+</html>

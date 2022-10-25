@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="700px" height="600px" style="border: 1px solid" ></canvas>
+
+    <script>
+        var ctx = document.getElementById('myCanvas').getContext('2d');
+        let x = 100;
+        let y = 100;
+        let speedX = 25;
+        let speedY = 25;
+
+        function drawCircle(x, y, r, color) {
+            ctx.clearRect(0,0,700,600);
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.arc(x,y,r,0,2*Math.PI);
+            ctx.fill();
+        }
+
+        drawCircle(x, y, 50, 'red');
+
+        setInterval(() => {
+            if (x + 50 >=700 || x <= 50) speedX = -speedX;
+            x += speedX;
+            if (y <= 50 || y +50 >= 500) speedY = -speedY;
+            y += -speedY;
+            drawCircle(x, y, 50, 'red');
+        }, 50)
+    </script>
+</body>
+</html>
