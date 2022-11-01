@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class conNguoi {
+            ten;
+            tuoi;
+            congViec;
+
+            hienThiThongTin() {
+                alert(this.ten + this.tuoi + this.congViec);
+            }
+        }
+
+        let ng1 = new conNguoi();
+        ng1.ten = "Nam";
+        ng1.tuoi = 22;
+        ng1.congViec = "GV";
+        ng1.hienThiThongTin();
+        console.log(ng1);
+    </script>
+</body>
+</html>

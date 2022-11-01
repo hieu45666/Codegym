@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600px" height="600px" style="border: 1px solid;"></canvas>
+
+    <script>
+        class Rectangle {
+            constructor(x, y, w, h, color) {
+                this.x = x;
+                this.y = y;
+                this.w = w;
+                this.h = h;
+                this.color = color;
+            }
+
+            draw() {
+                var ctx = document.getElementById('myCanvas').getContext('2d');
+                ctx.clearRect(0,0,600,600);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.x, this.y, this.w, this.h);
+            }
+
+            moveRight() {
+                this.x += 5;
+                this.draw();
+            }
+
+            moveLeft() {
+                this.x -= 5;
+                this.draw();
+            }
+
+            moveTop() {
+                this.y -= 5;
+                this.draw();
+            }
+
+            moveDown() {
+                this.y += 5;
+                this.draw();
+            }
+        }
+
+        let hcn1 = new Rectangle(100, 100, 100, 70, 'red');
+        hcn1.draw();
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key == 'ArrowRight') {
+                hcn1.moveRight();
+            }
+
+            if (e.key == 'ArrowLeft') {
+                hcn1.moveLeft();
+            }
+
+        if (e.key == 'ArrowUp') {
+                hcn1.moveTop();
+            }
+
+        if (e.key == 'ArrowDown') {
+                hcn1.moveDown();
+            }
+        })
+    </script>
+</body>
+</html>

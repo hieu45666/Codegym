@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1000px" height="500px" style="border: 1px solid;"></canvas>
+    <script>
+        class Circle {
+            constructor(x, y, r, color, speedX, speedY) {
+                this.x = x;
+                this.y = y;
+                this.r = r;
+                this.color = color;
+                this.speedX = speedX;
+                this.speedY = speedY;
+            }
+        
+        draw() {
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.clearRect(0, 0, 1000, 500)
+            ctx.beginPath();
+            ctx.fillStyle = this.color;
+            ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        move() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.draw();
+            }
+    }
+
+    let cir1 = new Circle(50, 50, 50, 'red', 20, 20);
+    let hoanhdo = cir1.speedX;
+    let tungdo  = cir1.speedY;
+        setInterval(() => {
+            cir1.move();
+            window.addEventListener('keydown', (e) => {
+            if (e.key == 'ArrowRight') {
+                cir1.speedX = 5;
+                cir1.speedY = 0;
+            }
+
+            if (e.key == 'ArrowLeft') {
+                cir1.speedX = -5;
+                cir1.speedY = 0;
+            }
+
+        if (e.key == 'ArrowUp') {
+                cir1.speedX = 0;
+                cir1.speedY = -5;
+            }
+
+        if (e.key == 'ArrowDown') {
+                cir1.speedX = 0;
+                cir1.speedY = 5;
+            }
+        })
+        }, 100)
+
+        
+    </script>
+</body>
+</html>

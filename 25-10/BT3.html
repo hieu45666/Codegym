@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Date {
+            constructor (day, month, year) {
+                this.day = day;
+                this.month = month;
+                this.year = year;
+            }
+
+            getDay() {
+                return this.day;
+            }
+
+            getMonth() {
+                return this.month;
+            }
+
+            getYear() {
+                return this.year;
+            }
+
+            setDay(day) {
+                while (day < 1 || day > 31){
+                    alert("Nhập lại");
+                    day = +prompt("Ngày");
+                }
+                this.day = day;
+            }
+
+            setMonth(month) {
+                while (month < 1 || month > 12){
+                    alert("Nhập lại");
+                    month = +prompt("Tháng");
+                }
+                this.month = month;
+            }
+
+            setYear(year) {
+                while (year < 1900 || year > 2199){
+                    alert("Nhập lại");
+                    year = +prompt("Năm");
+                }
+                this.year = year;
+            }
+
+            setDate(day, month, year) {
+                this.day = day;
+                this.month = month;
+                this.year = year;
+            }
+
+            toString() {
+                let date = "";
+                if (this.day < 10) date = '0' + this.day;
+                else date = this.day;
+                if (this.month < 10) date = date + '/0' + this.month;
+                else date = date +  '/'+ this.month;
+                date = date + '/' + this.year;
+                return date;
+            }
+        }
+
+        let date1 = new Date();
+    </script>
+</body>
+</html>

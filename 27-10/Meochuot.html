@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class conChuot {
+            constructor (weight) {
+                this.weight = weight;
+            }
+        }
+
+        class conMeo {
+            constructor(weight) {
+                this.weight = weight;
+            }
+        }
+        
+        let chuot1 = new conChuot(12);
+        let meo1 = new conMeo(22);
+        function an() {
+            meo1.weight += chuot1.weight; 
+        }
+
+        window.addEventListener('keydown', (e) => {
+            an();
+            alert(meo1.weight);
+        })
+    </script>
+</body>
+</html>
