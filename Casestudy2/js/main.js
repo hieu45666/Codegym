@@ -55,76 +55,75 @@ function reload() {
         banco[i].draw();
 }
 
-let chonO;
+var chonO;
+
+async function doiMauOChon(a) {
+        if (banco[a].stt % 6 == 0) {
+            x = 'quan' + banco[a].stt;
+            document.getElementById(x).style.backgroundColor = 'red';
+            await sleep(300);
+            document.getElementById(x).style.backgroundColor = 'white';
+        } else {
+            x = 'dan' + banco[a].stt;
+            document.getElementById(x).style.backgroundColor = 'red';
+            banco[a].soDan += 1;
+            await sleep(300);
+            document.getElementById(x).style.backgroundColor = 'white';
+        }
+    }
 
 function chon(a) {
-    for (let i = 7; i <= 11; i++) {
-        let x = 'dan'+i;
-        document.getElementById(x).style.backgroundColor = 'white';
-    }
-    chonO = a;
-    x = 'dan'+a;
-    document.getElementById(x).style.backgroundColor = 'red';
+    let x = a - 1;
+    doiMauOChon(x);
+    return x;
 }
 
 let scoreAI = 0;
 let scorePlayer = 0;
 
-async function raiQuan(chieu, chonO) {
-    let x = 'dan' + banco[chonO-1].stt;
+function raiQuan(chieu, chonO) {
+    let x = 'dan' + banco[chonO].stt;
     document.getElementById(x).style.backgroundColor = 'white';
+    let y = banco[chonO].soDan;
+    banco[chonO].soDan = 0;
     if (chieu == 'left')
-    {   
-        let y = banco[chonO-1].soDan;
-        banco[chonO-1].soDan = 0;
+    {   chonO += 1;
         for (let i = 0; i < y; i++) { 
             if (banco[chonO].stt % 6 == 0) {
-                x = 'quan' + banco[chonO].stt;
-                document.getElementById(x).style.backgroundColor = 'red';
                 banco[chonO].soQuan += 1; 
-                await sleep(300);
-                document.getElementById(x).style.backgroundColor = 'white';
+                doiMauOChon(chonO);
             } else {
-                x = 'dan' + banco[chonO].stt;
-                document.getElementById(x).style.backgroundColor = 'red';
                 banco[chonO].soDan += 1;
-                await sleep(300);
-                document.getElementById(x).style.backgroundColor = 'white';
+                doiMauOChon(chonO);
             }
             chonO++;
             if (chonO == 12) { chonO = 0;}
         reload();
     }
 } else {
-    let y = banco[chonO-1].soDan;
-    banco[chonO-1].soDan = 0;
+    chonO -= 1;
     for (let i = 0; i < y; i++) { 
-        if (banco[chonO-2].stt % 6 == 0) {
-            x = 'quan' + banco[chonO-2].stt;
-                document.getElementById(x).style.backgroundColor = 'red';
-                banco[chonO-2].soQuan += 1; 
-                await sleep(300);
-                document.getElementById(x).style.backgroundColor = 'white'; 
+        if (banco[chonO].stt % 6 == 0) {
+            x = 'quan' + banco[chonO].stt;
+                banco[chonO].soQuan += 1; 
+                doiMauOChon(chonO); 
         } else {
-            x = 'dan' + banco[chonO-2].stt;
-                document.getElementById(x).style.backgroundColor = 'red';
-                banco[chonO-2].soDan += 1;
-                await sleep(300);
-                document.getElementById(x).style.backgroundColor = 'white';
+                banco[chonO].soDan += 1;
+                doiMauOChon(chonO);
         }
         chonO--;
-        if (chonO == 1) { chonO = 13;}
+        if (chonO == -1) { chonO = 11;}
     reload();
         }
     }
 }
 
 function left() {
-    raiQuan('left', chonO);
+    raiQuan('left', chon(a));
 }
 
 function right() {
-    raiQuan('right', chonO);
+    raiQuan('right', chon(a));
 }
 
 function sleep(ms) {
@@ -138,7 +137,7 @@ function check(chieu, chonO){
         alert('Ban da het luot.');
     } else {
         if (banco[chonO].soDan == 0) {
-            
+            if (chieu == 'left') 
         }
     }
 }
@@ -150,6 +149,3 @@ function tinhDiem(player, diem) {
         document.getElementById('scoreAI').innerHTML = 'Score: '+diem;
     }
 }
-
-tinhDiem('player', 15);
-tinhDiem('AI', 22);
