@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3,4,5]
+        let x = 10;
+        function them() {
+            arr.push(document.getElementById('num').value);
+            x+=5;
+            document.getElementById('num').value = ''
+            localStorage.setItem('duLieu', arr);
+            localStorage.setItem('diemCao', x);
+            hien();
+        }
+        function hien() {
+            arr = localStorage.getItem('duLieu').split(',');
+            document.getElementById('hienThi').innerHTML = arr;
+            x= localStorage.getItem('diemCao')
+            document.getElementById('xx').innerHTML = x;
+        }
+        hien()
+        </script>
+</body>
+</html>

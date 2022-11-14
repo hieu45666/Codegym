@@ -8,23 +8,55 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div id="header"></div>
+    <div id="header">
+        <p id="scoreAI" class="score">Score: </p>
+    </div>
     <div id="main">
         <div id="game">
-            <div id="quan1"></div>
-            <div id="dan1"></div>
-            <div id="dan2"></div>
-            <div id="dan3"></div>
-            <div id="dan4"></div>
-            <div id="dan5"></div>
-            <div id="dan6"></div>
-            <div id="dan7"></div>
-            <div id="dan8"></div>
-            <div id="dan9"></div>
-            <div id="dan10"></div>
-            <div id="quan2"></div>
+            <div id="quan12">
+                <canvas id="myCanvas1" width="100px" height="200px"></canvas>
+            </div>
+            <div id="dan1">
+                <span id="scoreDan1" class="score">5</span>
+            </div>
+            <div id="dan2">
+                <span id="scoreDan2" class="score">5</span>
+            </div>
+            <div id="dan3">
+                <span id="scoreDan3" class="score">5</span>
+            </div>
+            <div id="dan4">
+                <span id="scoreDan4" class="score">5</span>
+            </div>
+            <div id="dan5">
+                <span id="scoreDan5" class="score">5</span>
+            </div>
+            <div id="dan7" onclick="chon(7)">
+                <span id="scoreDan7" class="score">5</span>
+            </div>
+            <div id="dan8" onclick="chon(8)">
+                <span id="scoreDan8" class="score">5</span>
+            </div>
+            <div id="dan9" onclick="chon(9)">
+                <span id="scoreDan9" class="score">5</span>
+            </div>
+            <div id="dan10" onclick="chon(10)">
+                <span id="scoreDan10" class="score">5</span>
+            </div>
+            <div id="dan11" onclick="chon(11)">
+                <span id="scoreDan11" class="score">5</span>
+            </div>
+            <div id="quan6">
+                <canvas id="myCanvas2" width="100px" height="200px"></canvas>
+            </div>
         </div>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+        <button id="left" onclick="left()">Trái</button>
+        <button id="right" onclick="right()">Phải</button>
+        <p id="scorePlayer" class="score">Score</p>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
