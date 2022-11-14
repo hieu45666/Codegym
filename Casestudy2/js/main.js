@@ -1,46 +1,46 @@
 class oInfo {
-    constructor(stt, soQuan, soDan) {
+    constructor(stt, soDan) {
         this.stt = stt;
-        this.soQuan = soQuan;
         this.soDan = soDan;
     }
 
     draw() {
-        if (this.soQuan != 0) {
-            if (this.stt == 12 ) {
+        switch (this.stt) {
+            case 12: 
                 var ctx = document.getElementById('myCanvas1').getContext('2d');
                 ctx.clearRect(0, 0, 100, 200);
                 ctx.lineWidth = 2;
                 ctx.font = '30px Arial';
                 ctx.arc(100, 100, 100, 0*Math.PI, 1.5*Math.PI);
-                ctx.fillText(this.soQuan,50,110);
+                ctx.fillText(this.soDan,50,110);
                 ctx.stroke();
-            } else {
+                break;
+            case 6:
                 var ctx = document.getElementById('myCanvas2').getContext('2d');
                 ctx.clearRect(0, 0, 100, 200);
                 ctx.lineWidth = 2;
                 ctx.font = '30px Arial';
                 ctx.arc(0, 100, 100, -0.5*Math.PI, 0.5*Math.PI);
-                ctx.fillText(this.soQuan,50,110);
+                ctx.fillText(this.soDan,50,110);
                 ctx.stroke();
-            }
-        } else {
+                break;
+        default:
             let score = 'dan' + this.stt;
             document.getElementById(score).innerHTML = this.soDan;
             document.getElementById(score).style.fontSize = '30px';
+            break;
         }
     }
 }
-
 let banco = [];
 
 function veBanCo() {
     for (let i = 1; i < 13; i++) {
         if (i % 6 == 0) {
-            let taovan = new oInfo(i,10,0);
+            let taovan = new oInfo(i,10);
             banco.push(taovan);
         } else {
-            let taovan = new oInfo(i,0,5);
+            let taovan = new oInfo(i,5);
             banco.push(taovan);
         }
     }
@@ -59,14 +59,13 @@ var chonO;
 
 async function doiMauOChon(a) {
         if (banco[a].stt % 6 == 0) {
-            x = 'quan' + banco[a].stt;
+            let x = 'quan' + banco[a].stt;
             document.getElementById(x).style.backgroundColor = 'red';
             await sleep(300);
             document.getElementById(x).style.backgroundColor = 'white';
         } else {
-            x = 'dan' + banco[a].stt;
+            let x = 'dan' + banco[a].stt;
             document.getElementById(x).style.backgroundColor = 'red';
-            banco[a].soDan += 1;
             await sleep(300);
             document.getElementById(x).style.backgroundColor = 'white';
         }
@@ -75,55 +74,45 @@ async function doiMauOChon(a) {
 function chon(a) {
     let x = a - 1;
     doiMauOChon(x);
-    return x;
+    chonO = x;
 }
 
-let scoreAI = 0;
-let scorePlayer = 0;
+var oDuocChon;
 
-function raiQuan(chieu, chonO) {
-    let x = 'dan' + banco[chonO].stt;
+function raiQuan(luot, chieu, z) {
+    let x = 'dan' + banco[z].stt;
     document.getElementById(x).style.backgroundColor = 'white';
-    let y = banco[chonO].soDan;
-    banco[chonO].soDan = 0;
+    let y = banco[z].soDan;
+    banco[z].soDan = 0;
     if (chieu == 'left')
-    {   chonO += 1;
+    {   z += 1;
         for (let i = 0; i < y; i++) { 
-            if (banco[chonO].stt % 6 == 0) {
-                banco[chonO].soQuan += 1; 
-                doiMauOChon(chonO);
-            } else {
-                banco[chonO].soDan += 1;
-                doiMauOChon(chonO);
-            }
-            chonO++;
-            if (chonO == 12) { chonO = 0;}
+            banco[z].soDan += 1;
+            doiMauOChon(z);
+            z++;
+            if (z == 12) { z = 0;}
         reload();
     }
 } else {
-    chonO -= 1;
+    z -= 1;
     for (let i = 0; i < y; i++) { 
-        if (banco[chonO].stt % 6 == 0) {
-            x = 'quan' + banco[chonO].stt;
-                banco[chonO].soQuan += 1; 
-                doiMauOChon(chonO); 
-        } else {
-                banco[chonO].soDan += 1;
-                doiMauOChon(chonO);
-        }
-        chonO--;
-        if (chonO == -1) { chonO = 11;}
+        banco[z].soDan +=1;
+        doiMauOChon(z);
+        z--;
+        if (z == -1) { z = 11;}
     reload();
         }
     }
+    oDuocChon = z;
+    check('player',chieu,oDuocChon);
 }
 
 function left() {
-    raiQuan('left', chon(a));
+    raiQuan('player','left', chonO);
 }
 
 function right() {
-    raiQuan('right', chon(a));
+    raiQuan('player','right', chonO);
 }
 
 function sleep(ms) {
@@ -132,20 +121,34 @@ function sleep(ms) {
     );
   }
 
-function check(chieu, chonO){
-    if (banco[chonO].stt % 6 == 0) {
-        alert('Ban da het luot.');
-    } else {
-        if (banco[chonO].soDan == 0) {
-            if (chieu == 'left') 
+function check(luot, chieu, chonO){
+    if (banco[chonO].soDan == 0) {
+        if (chieu == 'left') {
+            if (banco[chonO+1].soDan == 0) {alert("Hết lượt");}
+            else {
+                tinhDiem(luot, banco[chonO+1].soDan);
+                banco[chonO+1].soDan = 0;
+            }
+        } else {
+            if (banco[chonO-1].soDan == 0) {alert("Hết lượt");}
+            else {
+                tinhDiem(luot, banco[chonO+1].soDan);
+                banco[chonO-1].soDan = 0;
         }
     }
+} else {
+    raiQuan(luot, chieu, chonO);
+}
 }
 
 function tinhDiem(player, diem) {
+    let scoreAI = 0;
+    let scorePlayer = 0;
     if (player == 'player') {
+        scorePlayer += diem;
         document.getElementById('scorePlayer').innerHTML = 'Score: ' + diem;
     } else {
+        scoreAI += diem;
         document.getElementById('scoreAI').innerHTML = 'Score: '+diem;
     }
 }
